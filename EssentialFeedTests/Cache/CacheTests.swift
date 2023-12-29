@@ -120,13 +120,13 @@ class CacheTests: XCTestCase {
         XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
     }
     
-    private func uniqueItem() -> FeedItem {
-        return FeedItem(id: UUID(), description: "any", location: nil, imageURL: anyURL())
+    private func uniqueItem() -> FeedImage {
+        return FeedImage(id: UUID(), description: "any", location: nil, url: anyURL())
     }
     
-    private func uniqueItems() -> (models: [FeedItem], local: [CacheItem]) {
+    private func uniqueItems() -> (models: [FeedImage], local: [CacheItem]) {
         let models = [uniqueItem(), uniqueItem()]
-        let local = models.map { CacheItem(id: $0.id, description: $0.description, location: $0.location, imageURL: $0.imageURL)}
+        let local = models.map { CacheItem(id: $0.id, description: $0.description, location: $0.location, url: $0.url)}
         return (models, local)
     }
     
