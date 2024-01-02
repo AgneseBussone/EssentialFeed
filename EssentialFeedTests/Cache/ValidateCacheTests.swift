@@ -69,7 +69,6 @@ final class ValidateCacheTests: XCTestCase {
         let store = FeedStoreSpy()
         var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
         
-        var receivedResults = [LocalFeedLoader.LoadResult]()
         sut?.validateCache()
         
         sut = nil
