@@ -8,6 +8,7 @@ public protocol FeedStore {
 
     func deleteCachedFeed(completion: @escaping DeletionCompletion)
     func insert(_ items: [CacheItem], timestamp: Date, completion: @escaping InsertionCompletion)
+    func retrieve()
 }
 
 
