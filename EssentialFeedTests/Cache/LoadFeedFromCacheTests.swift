@@ -85,10 +85,10 @@ final class LoadFeedFromCacheTests: XCTestCase {
         sut.load() { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedImages), .success(expectedImages)):
-               XCTAssertEqual(receivedImages, expectedImages)
+               XCTAssertEqual(receivedImages, expectedImages, file: file, line: line)
             
             case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
-                XCTAssertEqual(receivedError, expectedError)
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
 
             default:
                 XCTFail("Expected result \(expectedResult), got \(receivedResult) instead")
