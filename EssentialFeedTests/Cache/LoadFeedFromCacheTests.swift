@@ -94,9 +94,21 @@ final class LoadFeedFromCacheTests: XCTestCase {
         let (sut, store) = makeSUT(currentDate: { currentDate })
         
         sut.load { _ in }
-        store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysTimestamp)
+        store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysTimestamp )
         
         XCTAssertEqual(store.receivedMessages, [.retrieve])
+    }
+
+    func test_load_deleteCacheOnSevenDaysOldCache() {
+        let feed = uniqueItems()
+        let currentDate = Date()
+        let sevenDaysTimestamp = currentDate.adding(days: -7)
+        let (sut, store) = makeSUT(currentDate: { currentDate })
+        
+        sut.load { _ in }
+        store.completeRetrieval(with: feed.local, timestamp: sevenDaysTimestamp )
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCacheFeed])
     }
     
     // MARK: - Helpers
