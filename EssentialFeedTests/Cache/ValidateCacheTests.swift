@@ -50,33 +50,5 @@ final class ValidateCacheTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, store)
     }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
-    
-    private func anyURL() -> URL {
-        return URL(string: "http://any-url.com")!
-    }
-    
-    private func uniqueItem() -> FeedImage {
-        return FeedImage(id: UUID(), description: "any", location: nil, url: anyURL())
-    }
-    
-    private func uniqueItems() -> (models: [FeedImage], local: [CacheItem]) {
-        let models = [uniqueItem(), uniqueItem()]
-        let local = models.map { CacheItem(id: $0.id, description: $0.description, location: $0.location, url: $0.url)}
-        return (models, local)
-    }
 
-}
-
-private extension Date {
-    func adding(days: Int) -> Date {
-        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
-    }
-
-    func adding(seconds: TimeInterval) -> Date {
-        return self + seconds
-    }
 }
