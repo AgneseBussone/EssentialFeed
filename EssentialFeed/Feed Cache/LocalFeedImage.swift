@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct CacheItem: Equatable {
+public struct LocalFeedImage: Equatable {
     public let id: UUID
     public let description: String?
     public let location: String?

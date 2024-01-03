@@ -7,9 +7,9 @@ func uniqueItem() -> FeedImage {
     return FeedImage(id: UUID(), description: "any", location: nil, url: anyURL())
 }
 
-func uniqueItems() -> (models: [FeedImage], local: [CacheItem]) {
+func uniqueItems() -> (models: [FeedImage], local: [LocalFeedImage]) {
     let models = [uniqueItem(), uniqueItem()]
-    let local = models.map { CacheItem(id: $0.id, description: $0.description, location: $0.location, url: $0.url)}
+    let local = models.map { LocalFeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.url)}
     return (models, local)
 }
 
