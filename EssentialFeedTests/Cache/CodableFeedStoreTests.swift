@@ -5,8 +5,31 @@ import EssentialFeed
 
 class CodableFeedStore {
     private struct Cache: Codable {
-        let feed: [CacheItem]
+        let feed: [CodableCacheItem]
         let timestamp: Date
+        
+        var cacheItem: [CacheItem] {
+            return feed.map { $0.local }
+        }
+    }
+    
+    // This type mirrors CacheItem to avoid adding the Codable implementation there (it would tightly couple the two types:
+    // what if we decide to change the Store implementation to other things that don't need Codable?)
+    private struct CodableCacheItem: Codable {
+        private let id: UUID
+        private let description: String?
+        private let location: String?
+        private let url: URL
+        
+        init(_ image: CacheItem) {
+            id = image.id
+            description = image.description
+            location = image.location
+            url = image.url
+        }
+        var local: CacheItem {
+            return CacheItem(id: id, description: description, location: location, url: url)
+        }
     }
     
     private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
@@ -18,12 +41,13 @@ class CodableFeedStore {
         
         let decoder = JSONDecoder()
         let cache = try! decoder.decode(Cache.self, from: data)
-        completion(.found(feed: cache.feed, timestamp: cache.timestamp))
+        completion(.found(feed: cache.cacheItem, timestamp: cache.timestamp))
     }
     
     func insert(_ items: [CacheItem], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
         let encoder = JSONEncoder()
-        let encoded = try! encoder.encode(Cache(feed: items, timestamp: timestamp))
+        let cache = Cache(feed: items.map(CodableCacheItem.init), timestamp: timestamp)
+        let encoded = try! encoder.encode(cache)
         try! encoded.write(to: storeURL)
         completion(nil)
     }
