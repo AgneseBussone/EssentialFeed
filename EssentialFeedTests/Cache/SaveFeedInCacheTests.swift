@@ -3,7 +3,7 @@
 import XCTest
 import EssentialFeed
 
-class CacheTests: XCTestCase {
+class SaveFeedInCacheTests: XCTestCase {
     
     func test_init_doesNotMessageStoreUponCreation() {
         let (_, store) = makeSUT()
