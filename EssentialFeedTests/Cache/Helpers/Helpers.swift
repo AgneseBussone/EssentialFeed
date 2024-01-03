@@ -13,15 +13,23 @@ func uniqueItems() -> (models: [FeedImage], local: [CacheItem]) {
     return (models, local)
 }
 
+// Extension for cache policies
 extension Date {
-    func minusFeedCacheMaxAge() -> Date {
-        return adding(days: -7)
+    private var feedCacheMaxAgeInDays: Int {
+        return 7
     }
     
-    func adding(days: Int) -> Date {
+    func minusFeedCacheMaxAge() -> Date {
+        return adding(days: -feedCacheMaxAgeInDays)
+    }
+    
+    private func adding(days: Int) -> Date {
         return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
     }
-
+}
+    
+// Generic extension on the type
+extension Date {
     func adding(seconds: TimeInterval) -> Date {
         return self + seconds
     }
