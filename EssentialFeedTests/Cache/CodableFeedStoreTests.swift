@@ -170,14 +170,9 @@ final class CodableFeedStoreTests: XCTestCase {
     func test_delete_hasNoEffectsOnEmptyCache() {
         let sut = makeSUT()
         
-        let exp = expectation(description: "Wait for deletion")
-        sut.deleteCachedFeed { error in
-            XCTAssertNil(error, "Expected empty cache deletion to succeed")
-            exp.fulfill()
-        }
+        let deletionError = delete(from: sut)
         
-        wait(for: [exp], timeout: 1.0)
-        
+        XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
         
     }
@@ -186,14 +181,9 @@ final class CodableFeedStoreTests: XCTestCase {
         let sut = makeSUT()
         insert((uniqueItems().local, Date()), to: sut)
         
-        let exp = expectation(description: "Wait for deletion")
-        sut.deleteCachedFeed { error in
-            XCTAssertNil(error, "Expected non empty cache deletion to succeed")
-            exp.fulfill()
-        }
+        let deletionError = delete(from: sut)
         
-        wait(for: [exp], timeout: 1.0)
-        
+        XCTAssertNil(deletionError, "Expected non empty cache deletion to succeed")
         expect(sut, toRetrieve: .empty)
     }
     
@@ -201,13 +191,10 @@ final class CodableFeedStoreTests: XCTestCase {
         let noDeletePermissionURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
         let sut = makeSUT(storeURL: noDeletePermissionURL)
         
-        let exp = expectation(description: "Wait for deletion")
-        sut.deleteCachedFeed { error in
-            XCTAssertNotNil(error, "Expected deletion error")
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
+        let deletionError = delete(from: sut)
+
+        XCTAssertNotNil(deletionError, "Expected deletion error")
+
     }
     
     // MARK: - Helpers
@@ -230,6 +217,18 @@ final class CodableFeedStoreTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         
         return insertionError
+    }
+    
+    private func delete(from sut: CodableFeedStore) -> Error? {
+        let exp = expectation(description: "Wait for deletion")
+        var deletionError: Error?
+        sut.deleteCachedFeed { error in
+            deletionError = error
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+        return deletionError
     }
     
     private func expect(_ sut: CodableFeedStore, toRetrieveTwice expectedResult: RetrieveCachedFeedResult, file: StaticString = #file, line: UInt = #line) {
