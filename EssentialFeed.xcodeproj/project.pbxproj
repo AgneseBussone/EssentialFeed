@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9102B0112B471101009B6464 /* CodableFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9102B0102B471101009B6464 /* CodableFeedStore.swift */; };
+		9102B0132B484643009B6464 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9102B0122B484643009B6464 /* FeedStoreSpecs.swift */; };
 		918EB4582B3DB6D400B8E847 /* SaveFeedInCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB4572B3DB6D400B8E847 /* SaveFeedInCacheTests.swift */; };
 		918EB45B2B3ECED100B8E847 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB45A2B3ECED100B8E847 /* LocalFeedLoader.swift */; };
 		918EB45D2B3ECF8E00B8E847 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB45C2B3ECF8E00B8E847 /* FeedStore.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		9102B0102B471101009B6464 /* CodableFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStore.swift; sourceTree = "<group>"; };
+		9102B0122B484643009B6464 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		918EB4572B3DB6D400B8E847 /* SaveFeedInCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFeedInCacheTests.swift; sourceTree = "<group>"; };
 		918EB45A2B3ECED100B8E847 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		918EB45C2B3ECF8E00B8E847 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				918EB4622B440D6100B8E847 /* LoadFeedFromCacheTests.swift */,
 				918EB4672B445A9C00B8E847 /* ValidateCacheTests.swift */,
 				91FBA62A2B4591890047E8B2 /* CodableFeedStoreTests.swift */,
+				9102B0122B484643009B6464 /* FeedStoreSpecs.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				918EB4682B445A9C00B8E847 /* ValidateCacheTests.swift in Sources */,
 				918EB4582B3DB6D400B8E847 /* SaveFeedInCacheTests.swift in Sources */,
 				91B6DEEA2B3098ED0026B599 /* URLSessionHTTPClientTests.swift in Sources */,
+				9102B0132B484643009B6464 /* FeedStoreSpecs.swift in Sources */,
 				918EB4632B440D6100B8E847 /* LoadFeedFromCacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

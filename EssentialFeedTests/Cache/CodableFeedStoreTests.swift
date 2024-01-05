@@ -3,8 +3,7 @@
 import XCTest
 import EssentialFeed
 
-final class CodableFeedStoreTests: XCTestCase {
-    
+final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     override func tearDown() {
         super.tearDown()
         cleanStore()
