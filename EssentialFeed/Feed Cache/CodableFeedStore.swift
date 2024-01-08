@@ -1,4 +1,4 @@
-//
+// Use the file system to store the data as json files.
 
 import Foundation
 
