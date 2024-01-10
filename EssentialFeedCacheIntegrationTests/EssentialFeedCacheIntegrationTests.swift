@@ -1,4 +1,6 @@
-//
+// Integration tests for the LoadFeedLoader + CoreData combo:
+// here we can test only the happy path, to be sure the components work together as expected.
+// Edge cases like error scenarios are already tested in the unit tests (where it's possible to mock edge cases easily)
 
 import XCTest
 import EssentialFeed
@@ -49,6 +51,9 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> LocalFeedLoader {
         let storeBundle = Bundle(for: CoreDataFeedStore.self)
         let storeURL = testStoreURL()
+        
+        // Using the other implementation bears the same results in tests
+//        let store = CodableFeedStore(storeURL: storeURL)
         
         // Testing LocalFeedLoader + CoreData implementation
         // Hitting the disk for real here (while in unit test it was /dev/null)
