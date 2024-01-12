@@ -109,8 +109,8 @@ class SaveFeedInCacheTests: XCTestCase {
         let exp = expectation(description: "Wait for save completion")
         
         var receivedError: Error?
-        sut.save(uniqueItems().models) { error in
-            receivedError = error
+        sut.save(uniqueItems().models) { result in
+            if case let Result.failure(error) = result { receivedError = error }
             exp.fulfill()
         }
         
