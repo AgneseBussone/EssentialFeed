@@ -12,7 +12,7 @@ public final class RemoteFeedLoader: FeedLoader {
         case invalidData
     }
     
-    public typealias Result = LoadFeedResult
+    public typealias Result = FeedLoader.Result
     
     // the RemoteFeedLoader doesn't need to know details about url and http client,
     // so they can simply be passed in as dependencies
@@ -21,7 +21,7 @@ public final class RemoteFeedLoader: FeedLoader {
         self.client = client
     }
     
-    public func load(completion: @escaping (LoadFeedResult) -> Void) {
+    public func load(completion: @escaping (FeedLoader.Result) -> Void) {
         client.get(from: url) { [weak self] result in
             
             // avoid running the completion block in case the instance of the RemoteFeedLoader has been destroyed
