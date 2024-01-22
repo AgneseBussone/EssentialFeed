@@ -420,16 +420,6 @@ private extension FeedImageCell {
     }
 }
 
-private extension UIButton {
-    func simulateTap() {
-        allTargets.forEach { target in
-            actions(forTarget: target, forControlEvent: .touchUpInside)?.forEach {
-                (target as NSObject).perform(Selector($0))
-            }
-        }
-    }
-}
-
 // iOS 17 changed the lifecycle for this element, so to keep the tests clean, 
 // it's better to override its behaviour
 private class FakeRefreshControl: UIRefreshControl {
@@ -443,28 +433,5 @@ private class FakeRefreshControl: UIRefreshControl {
     
     override func endRefreshing() {
         _isRefreshing = false
-    }
-}
-
-
-private extension UIRefreshControl {
-    func simulatePullToRefresh() {
-        allTargets.forEach({ target in
-            actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { (target as NSObject).perform(Selector($0))
-            }
-        })
-    }
-}
-
-private extension UIImage {
-    static func make(withColor color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
-        let format = UIGraphicsImageRendererFormat()
-        format.scale = 1
-
-        return UIGraphicsImageRenderer(size: rect.size, format: format).image { rendererContext in
-            color.setFill()
-            rendererContext.fill(rect)
-        }
     }
 }
