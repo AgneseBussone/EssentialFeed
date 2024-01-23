@@ -20,6 +20,7 @@ final class FeedImageCellController {
         cell.locationLabel.text = model.location
         cell.descriptionLabel.text = model.description
         cell.feedImageRetryButton.isHidden = true
+        cell.feedImageView.image = nil
         cell.feedImageContainer.startShimmering()
         
         let loadImage = { [weak self, weak cell] in
@@ -28,6 +29,7 @@ final class FeedImageCellController {
             self.task = self.imageLoader.loadImageData(from: model.url) { [weak cell] result in
                 let data = try? result.get()
                 let image = data.map(UIImage.init) ?? nil
+                cell?.feedImageView.image = image
                 cell?.feedImageRetryButton.isHidden = (image != nil)
                 cell?.feedImageContainer.stopShimmering()
             }
