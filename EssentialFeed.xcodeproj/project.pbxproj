@@ -73,6 +73,7 @@
 		91FC95F62B5EBE5C00209984 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC95F52B5EBE5C00209984 /* FeedRefreshViewController.swift */; };
 		91FC95F82B5FBED100209984 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC95F72B5FBED100209984 /* FeedImageCellController.swift */; };
 		91FC95FB2B5FC3E100209984 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC95FA2B5FC3E100209984 /* FeedUIComposer.swift */; };
+		91FC95FE2B611C4B00209984 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC95FD2B611C4B00209984 /* FeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +195,7 @@
 		91FC95F52B5EBE5C00209984 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		91FC95F72B5FBED100209984 /* FeedImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCellController.swift; sourceTree = "<group>"; };
 		91FC95FA2B5FC3E100209984 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
+		91FC95FD2B611C4B00209984 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,6 +465,7 @@
 		91FC95DF2B5EAE3400209984 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
+				91FC95FC2B611C3A00209984 /* Models */,
 				91FC95F92B5FC3CD00209984 /* Composers */,
 				91FC95E12B5EAE4B00209984 /* Controllers */,
 				91FC95E02B5EAE4200209984 /* Views */,
@@ -525,6 +528,14 @@
 				91FC95FA2B5FC3E100209984 /* FeedUIComposer.swift */,
 			);
 			path = Composers;
+			sourceTree = "<group>";
+		};
+		91FC95FC2B611C3A00209984 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				91FC95FD2B611C4B00209984 /* FeedViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -829,6 +840,7 @@
 				910F39BA2B59798B001B41C1 /* UIView+Shimmering.swift in Sources */,
 				910F39B82B592E60001B41C1 /* FeedImageCell.swift in Sources */,
 				91AA427E2B57DEAF001D2796 /* EssentialFeediOS.docc in Sources */,
+				91FC95FE2B611C4B00209984 /* FeedViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
