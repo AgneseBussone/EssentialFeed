@@ -23,7 +23,7 @@ extension FeedViewController {
         delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: index)
     }
     
-    func isShowingLoadingIndicator() -> Bool {
+    var isShowingLoadingIndicator: Bool {
         return refreshControl?.isRefreshing == true
     }
     
@@ -37,6 +37,7 @@ extension FeedViewController {
         }
         
         refreshControl = fake
+        refreshController?.view = fake
     }
     
     private var feedImagesSection: Int {

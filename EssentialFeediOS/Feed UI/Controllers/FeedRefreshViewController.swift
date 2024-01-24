@@ -3,7 +3,7 @@
 import UIKit
 import EssentialFeed
 
-final class FeedRefreshViewController: NSObject {
+final public class FeedRefreshViewController: NSObject {
     
     private let feedLoader: FeedLoader
     
@@ -13,7 +13,7 @@ final class FeedRefreshViewController: NSObject {
         self.feedLoader = feedLoader
     }
     
-    private(set) lazy var view: UIRefreshControl = {
+    public lazy var view: UIRefreshControl = {
         let view = UIRefreshControl()
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
