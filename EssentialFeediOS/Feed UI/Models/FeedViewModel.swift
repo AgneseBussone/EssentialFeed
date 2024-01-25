@@ -1,4 +1,5 @@
-//
+// No dependencies on framework classes, like UIKit. Those are kept in the VC.
+// The ViewModel has to be platform agnostic to be reusable.
 
 import Foundation
 import EssentialFeed

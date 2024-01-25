@@ -1,4 +1,6 @@
-//
+// By using the VM, this controller is linked only to framework dependencies,
+// like UIKit, not core logic component from EssentialFeed.
+// The communication with the core component is grouped in the FeedViewModel.
 
 import UIKit
 
