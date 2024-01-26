@@ -3,9 +3,7 @@
 import Foundation
 import EssentialFeed
 
-// Retain cycle: the view holds a reference to the presenter and the presenter holds a reference to the view.
-// That's why it needs to be weakifyed
-protocol FeedLoadingView: AnyObject {
+protocol FeedLoadingView {
     func display(isLoading: Bool)
 }
 
@@ -17,7 +15,7 @@ final class FeedPresenter {
     typealias Observer<T> = (T) -> Void
     
     var feedView: FeedView?
-    weak var loadingView: FeedLoadingView?
+    var loadingView: FeedLoadingView?
     
     private let feedLoader: FeedLoader
     
