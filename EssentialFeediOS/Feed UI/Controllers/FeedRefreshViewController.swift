@@ -1,20 +1,19 @@
 // By using the VM, this controller is linked only to framework dependencies,
 // like UIKit, not core logic component from EssentialFeed.
-// The communication with the core component is grouped in the FeedViewModel.
 
 import UIKit
 
 final public class FeedRefreshViewController: NSObject, FeedLoadingView {
     public lazy var view: UIRefreshControl = loadView()
 
-    private let presenter: FeedPresenter
+    private let loadFeed: () -> Void
         
-    init(presenter: FeedPresenter) {
-        self.presenter = presenter
+    init(loadFeed: @escaping () -> Void) {
+        self.loadFeed = loadFeed
     }
         
     @objc func refresh() {
-        presenter.loadFeed()
+        loadFeed()
     }
     
     func display(_ viewModel: FeedLoadingViewModel) {
