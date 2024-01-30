@@ -37,7 +37,6 @@ extension FeedViewController {
         }
         
         refreshControl = fake
-        refreshController?.view = fake
     }
     
     private var feedImagesSection: Int {
