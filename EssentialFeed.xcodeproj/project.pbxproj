@@ -79,6 +79,7 @@
 		91FC960B2B67D12F00209984 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC960A2B67D12F00209984 /* FeedViewModel.swift */; };
 		91FC960D2B692C6800209984 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FC960C2B692C6800209984 /* Feed.storyboard */; };
 		91FC960F2B692D8700209984 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91FC960E2B692D8700209984 /* Feed.xcassets */; };
+		91FC96112B69404B00209984 /* UITableView+Dequeuing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC96102B69404B00209984 /* UITableView+Dequeuing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,7 @@
 		91FC960A2B67D12F00209984 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		91FC960C2B692C6800209984 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		91FC960E2B692D8700209984 /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
+		91FC96102B69404B00209984 /* UITableView+Dequeuing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeuing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,6 +492,7 @@
 				910F39B92B59798B001B41C1 /* UIView+Shimmering.swift */,
 				91FC960C2B692C6800209984 /* Feed.storyboard */,
 				91FC960E2B692D8700209984 /* Feed.xcassets */,
+				91FC96102B69404B00209984 /* UITableView+Dequeuing.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				91FC95FB2B5FC3E100209984 /* FeedUIComposer.swift in Sources */,
 				910F39B52B58328E001B41C1 /* FeedViewController.swift in Sources */,
 				91FC96032B62BB8800209984 /* FeedPresenter.swift in Sources */,
+				91FC96112B69404B00209984 /* UITableView+Dequeuing.swift in Sources */,
 				91FC96072B67AA9900209984 /* FeedImageViewModel.swift in Sources */,
 				91FC96052B679E8A00209984 /* FeedImagePresenter.swift in Sources */,
 				91FC96092B67D0E000209984 /* FeedLoadingViewModel.swift in Sources */,
