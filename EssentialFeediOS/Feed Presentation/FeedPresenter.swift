@@ -17,7 +17,7 @@ final class FeedPresenter {
     private let loadingView: FeedLoadingView
     
     static var title: String {
-        return "My Feed"
+        return NSLocalizedString("FEED_VIEW_TITLE", tableName: "Feed", bundle: Bundle(for: FeedPresenter.self), comment: "")
     }
     
     init(feedView: FeedView, loadingView: FeedLoadingView) {
