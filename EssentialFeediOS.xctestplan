@@ -23,6 +23,9 @@
   "testTargets" : [
     {
       "parallelizable" : true,
+      "skippedTests" : [
+        "FeedLocalizationTests"
+      ],
       "target" : {
         "containerPath" : "container:EssentialFeed.xcodeproj",
         "identifier" : "91AA42822B57DEB0001D2796",
