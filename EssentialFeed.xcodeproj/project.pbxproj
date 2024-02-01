@@ -83,6 +83,7 @@
 		91FC96132B6941ED00209984 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC96122B6941ED00209984 /* UIImageView+Animations.swift */; };
 		91FC96152B6A89B500209984 /* Feed.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 91FC96142B6A89B500209984 /* Feed.xcstrings */; };
 		91FC96182B6A966C00209984 /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC96172B6A966C00209984 /* FeedLocalizationTests.swift */; };
+		91FC961B2B6B914500209984 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FC961A2B6B914500209984 /* MainQueueDispatchDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +215,7 @@
 		91FC96122B6941ED00209984 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
 		91FC96142B6A89B500209984 /* Feed.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Feed.xcstrings; sourceTree = "<group>"; };
 		91FC96172B6A966C00209984 /* FeedLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLocalizationTests.swift; sourceTree = "<group>"; };
+		91FC961A2B6B914500209984 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				91FC95FA2B5FC3E100209984 /* FeedUIComposer.swift */,
+				91FC961A2B6B914500209984 /* MainQueueDispatchDecorator.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91FC95E32B5EAE7300209984 /* FeedImageDataLoader.swift in Sources */,
+				91FC961B2B6B914500209984 /* MainQueueDispatchDecorator.swift in Sources */,
 				91FC95FB2B5FC3E100209984 /* FeedUIComposer.swift in Sources */,
 				910F39B52B58328E001B41C1 /* FeedViewController.swift in Sources */,
 				91FC96032B62BB8800209984 /* FeedPresenter.swift in Sources */,
