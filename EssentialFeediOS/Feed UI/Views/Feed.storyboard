@@ -23,12 +23,14 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPO-cd-u4r">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="25"/>
                                     <color key="backgroundColor" red="1" green="0.41584056619999998" blue="0.41584056619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <gestureRecognizers/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="DPO-cd-u4r" secondAttribute="bottom" id="0ae-gY-hkv"/>
                                 <constraint firstItem="DPO-cd-u4r" firstAttribute="leading" secondItem="9xp-Le-g3Z" secondAttribute="leading" id="SrT-kt-xrJ"/>
@@ -170,6 +172,11 @@ Location</string>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iB-ux-Bz0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="our-Ze-1IG">
+                    <connections>
+                        <action selector="hideMessageAnimated" destination="9xp-Le-g3Z" id="3CC-9d-T3V"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1031.2977099236641" y="-82.394366197183103"/>
         </scene>
