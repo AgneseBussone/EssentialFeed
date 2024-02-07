@@ -72,3 +72,9 @@ extension FeedViewController: FeedLoadingView {
         }
     }
 }
+
+extension FeedViewController: FeedErrorView {
+    func display(_ viewmodel: FeedErrorViewModel) {
+        errorView.message = viewmodel.message
+    }
+}
