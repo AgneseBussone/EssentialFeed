@@ -19,7 +19,25 @@
                         <view key="tableHeaderView" contentMode="scaleToFill" id="9xp-Le-g3Z" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPO-cd-u4r">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="25"/>
+                                    <color key="backgroundColor" red="1" green="0.41584056619999998" blue="0.41584056619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="DPO-cd-u4r" secondAttribute="bottom" id="0ae-gY-hkv"/>
+                                <constraint firstItem="DPO-cd-u4r" firstAttribute="leading" secondItem="9xp-Le-g3Z" secondAttribute="leading" id="SrT-kt-xrJ"/>
+                                <constraint firstAttribute="trailing" secondItem="DPO-cd-u4r" secondAttribute="trailing" id="sYM-Lh-pfJ"/>
+                                <constraint firstItem="DPO-cd-u4r" firstAttribute="top" secondItem="9xp-Le-g3Z" secondAttribute="top" id="xjc-b4-zgQ"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="DPO-cd-u4r" id="HAq-cN-5Rn"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="iOH-Ol-DXp">
                             <rect key="frame" x="0.0" y="674" width="393" height="16"/>
