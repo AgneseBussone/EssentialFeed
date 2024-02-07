@@ -33,6 +33,7 @@
 		910F39B82B592E60001B41C1 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F39B72B592E60001B41C1 /* FeedImageCell.swift */; };
 		910F39BA2B59798B001B41C1 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F39B92B59798B001B41C1 /* UIView+Shimmering.swift */; };
 		916BD90D2B73CA84009CD0F8 /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916BD90C2B73CA84009CD0F8 /* FeedErrorViewModel.swift */; };
+		916BD90F2B73CE32009CD0F8 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916BD90E2B73CE32009CD0F8 /* ErrorView.swift */; };
 		918EB4582B3DB6D400B8E847 /* SaveFeedInCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB4572B3DB6D400B8E847 /* SaveFeedInCacheTests.swift */; };
 		918EB45B2B3ECED100B8E847 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB45A2B3ECED100B8E847 /* LocalFeedLoader.swift */; };
 		918EB45D2B3ECF8E00B8E847 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB45C2B3ECF8E00B8E847 /* FeedStore.swift */; };
@@ -164,6 +165,7 @@
 		910F39B72B592E60001B41C1 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		910F39B92B59798B001B41C1 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		916BD90C2B73CA84009CD0F8 /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
+		916BD90E2B73CE32009CD0F8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		918EB4572B3DB6D400B8E847 /* SaveFeedInCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFeedInCacheTests.swift; sourceTree = "<group>"; };
 		918EB45A2B3ECED100B8E847 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		918EB45C2B3ECF8E00B8E847 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 				91FC960E2B692D8700209984 /* Feed.xcassets */,
 				91FC96102B69404B00209984 /* UITableView+Dequeuing.swift */,
 				91FC96122B6941ED00209984 /* UIImageView+Animations.swift */,
+				916BD90E2B73CE32009CD0F8 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				91FC961B2B6B914500209984 /* MainQueueDispatchDecorator.swift in Sources */,
 				91FC961D2B6B920400209984 /* WeakRefVirtualProxy.swift in Sources */,
 				91FC95FB2B5FC3E100209984 /* FeedUIComposer.swift in Sources */,
+				916BD90F2B73CE32009CD0F8 /* ErrorView.swift in Sources */,
 				910F39B52B58328E001B41C1 /* FeedViewController.swift in Sources */,
 				91FC96032B62BB8800209984 /* FeedPresenter.swift in Sources */,
 				91FC96112B69404B00209984 /* UITableView+Dequeuing.swift in Sources */,
