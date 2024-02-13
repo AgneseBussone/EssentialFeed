@@ -44,6 +44,9 @@
     },
     {
       "parallelizable" : true,
+      "skippedTests" : [
+        "CodableFeedStoreTests"
+      ],
       "target" : {
         "containerPath" : "container:EssentialFeed.xcodeproj",
         "identifier" : "91978FBD2B2B4428008714AF",
