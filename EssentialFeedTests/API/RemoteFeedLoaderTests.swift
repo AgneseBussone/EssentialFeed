@@ -169,6 +169,10 @@ class RemoteFeedLoaderTests: XCTestCase {
     // This is not production code, so keep it in the test scope
     private class HTTPClientSpy: HTTPClient {
         
+        private struct Task: HTTPClientTask {
+            func cancel() {}
+        }
+        
         private var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
         
         // keep track of the requested urls to check if the load is called multiple times
@@ -176,8 +180,9 @@ class RemoteFeedLoaderTests: XCTestCase {
             return messages.map { $0.url }
         }
         
-        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
             messages.append((url, completion))
+            return Task()
         }
         
         func complete(with error: Error, at index: Int = 0) {
