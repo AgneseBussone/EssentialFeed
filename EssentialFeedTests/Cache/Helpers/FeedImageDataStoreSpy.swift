@@ -19,7 +19,7 @@ class FeedImageDataStoreSpy: FeedImageDataStore {
         insertionCompletions.append(completion)
     }
     
-    func retrieve(dataFor url: URL, completion: @escaping (FeedImageDataStore.RetrievalResult) -> Void) {
+    func retrieve(dataForURL url: URL, completion: @escaping (FeedImageDataStore.RetrievalResult) -> Void) {
         receivedMessages.append(.retrieve(dataFor: url))
         retrievalCompletions.append(completion)
     }
