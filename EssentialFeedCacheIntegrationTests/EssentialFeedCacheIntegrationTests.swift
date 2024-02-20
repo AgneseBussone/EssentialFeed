@@ -57,7 +57,7 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         
         // Testing LocalFeedLoader + CoreData implementation
         // Hitting the disk for real here (while in unit test it was /dev/null)
-        let store = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
+        let store = try! CoreDataFeedStore(storeURL: storeURL)
         let sut = LocalFeedLoader(store: store, currentDate: Date.init)
         
         trackForMemoryLeaks(store, file: file, line: line)

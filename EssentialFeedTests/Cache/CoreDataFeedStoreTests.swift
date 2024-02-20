@@ -90,7 +90,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         // Moreover, when operating in-memory, you prevent cross test side-effects since this process doesn’t create any artifacts.
         let storeURL = URL(fileURLWithPath: "/dev/null")
         
-        let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
+        let sut = try! CoreDataFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
