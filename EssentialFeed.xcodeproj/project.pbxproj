@@ -429,9 +429,9 @@
 				918EB45C2B3ECF8E00B8E847 /* FeedStore.swift */,
 				918EB4602B3F187000B8E847 /* LocalFeedImage.swift */,
 				918EB46D2B455A0E00B8E847 /* FeedCachePolicy.swift */,
-				9102B0292B4C46FC009B6464 /* Infrastructure */,
 				916866702B7F9FBA00FEC25A /* FeedImageDataStore.swift */,
 				916866722B7F9FEB00FEC25A /* LocalFeedImageDataLoader.swift */,
+				9102B0292B4C46FC009B6464 /* Infrastructure */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";

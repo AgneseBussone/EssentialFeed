@@ -3,6 +3,7 @@
 import Foundation
 
 public class LocalFeedImageDataLoader {
+    public typealias SaveResult = Result<Void, Swift.Error>
     
     private let store: FeedImageDataStore
     
@@ -29,6 +30,10 @@ public class LocalFeedImageDataLoader {
         func cancel() {
             completion = nil
         }
+    }
+    
+    public func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void) {
+        store.insert(data, for: url) { _ in }
     }
     
     public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
