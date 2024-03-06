@@ -16,6 +16,7 @@
 		9168668C2B98B00500FEC25A /* FeedLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9168668B2B98B00500FEC25A /* FeedLoaderCacheDecoratorTests.swift */; };
 		9168668E2B98B2B600FEC25A /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9168668D2B98B2B600FEC25A /* FeedLoaderStub.swift */; };
 		916866902B98B38200FEC25A /* XCTestCase+FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9168668F2B98B38200FEC25A /* XCTestCase+FeedLoader.swift */; };
+		916866942B98BEB900FEC25A /* FeedLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916866932B98BEB900FEC25A /* FeedLoaderCacheDecorator.swift */; };
 		91D008E02B7D01D400B6C6A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D008DF2B7D01D400B6C6A7 /* AppDelegate.swift */; };
 		91D008E22B7D01D400B6C6A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D008E12B7D01D400B6C6A7 /* SceneDelegate.swift */; };
 		91D008E42B7D01D400B6C6A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D008E32B7D01D400B6C6A7 /* ViewController.swift */; };
@@ -73,6 +74,7 @@
 		9168668B2B98B00500FEC25A /* FeedLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
 		9168668D2B98B2B600FEC25A /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
 		9168668F2B98B38200FEC25A /* XCTestCase+FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedLoader.swift"; sourceTree = "<group>"; };
+		916866932B98BEB900FEC25A /* FeedLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		91D008DC2B7D01D400B6C6A7 /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D008DF2B7D01D400B6C6A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D008E12B7D01D400B6C6A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				91D008DF2B7D01D400B6C6A7 /* AppDelegate.swift */,
 				91D008E12B7D01D400B6C6A7 /* SceneDelegate.swift */,
 				91D008E32B7D01D400B6C6A7 /* ViewController.swift */,
+				916866932B98BEB900FEC25A /* FeedLoaderCacheDecorator.swift */,
 				916866802B97636A00FEC25A /* FeedLoaderWithFallbackComposite.swift */,
 				916866842B9776DE00FEC25A /* FeedImageDataLoaderWithFallbackComposite.swift */,
 				91D008E52B7D01D400B6C6A7 /* Main.storyboard */,
@@ -331,6 +334,7 @@
 				91D008E42B7D01D400B6C6A7 /* ViewController.swift in Sources */,
 				91D008E02B7D01D400B6C6A7 /* AppDelegate.swift in Sources */,
 				916866812B97636A00FEC25A /* FeedLoaderWithFallbackComposite.swift in Sources */,
+				916866942B98BEB900FEC25A /* FeedLoaderCacheDecorator.swift in Sources */,
 				91D008E22B7D01D400B6C6A7 /* SceneDelegate.swift in Sources */,
 				916866852B9776DE00FEC25A /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 			);
