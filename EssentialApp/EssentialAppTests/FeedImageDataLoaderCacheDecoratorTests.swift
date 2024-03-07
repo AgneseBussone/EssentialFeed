@@ -34,6 +34,12 @@ final class FeedImageDataLoaderCacheDecoratorTests: XCTestCase, FeedImageDataLoa
         expect(sut, toCompleteWith: .success(data))
     }
     
+    func test_loadImageData_deliversErrorOnLoaderFailure() {
+        let sut = makeSUT(loaderResult: .failure(anyNSError()))
+        
+        expect(sut, toCompleteWith: .failure(anyNSError()))
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(loaderResult: FeedImageDataLoader.Result, cache: CacheSpy = .init(), file: StaticString = #file, line: UInt = #line) -> FeedImageDataLoader {
