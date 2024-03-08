@@ -7,7 +7,7 @@ public final class ErrorView: UIView {
     
     public var message: String? {
         get { return label.text }
-        set { label.text = newValue }
+        set { setMessageAnimated(newValue) }
     }
     
     public override func awakeFromNib() {
