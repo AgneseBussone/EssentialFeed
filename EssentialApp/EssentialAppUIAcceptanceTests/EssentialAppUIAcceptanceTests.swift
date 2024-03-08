@@ -1,6 +1,8 @@
 // These tests are not very reliable: without the waitForExistence they would fail
 // (in fact, I was not able to get the assert to pass even if the elements are rendered on screen)
 
+// NOTE: THESE TESTS ARE NOT USED ANYMORE! INTEGRATION UI TESTS REPLACED THEM!!
+
 import XCTest
 
 final class EssentialAppUIAcceptanceTests: XCTestCase {
