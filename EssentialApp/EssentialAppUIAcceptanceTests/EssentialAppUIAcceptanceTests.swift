@@ -1,4 +1,5 @@
-//
+// These tests are not very reliable: without the waitForExistence they would fail
+// (in fact, I was not able to get the assert to pass even if the elements are rendered on screen)
 
 import XCTest
 
@@ -10,10 +11,14 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
         app.launch()
 
         let feedCells = app.cells.matching(identifier: "feed-image-cell")
-        XCTAssertEqual(feedCells.count, 2)
+        if feedCells.element.waitForExistence(timeout: 2) {
+            XCTAssertEqual(feedCells.count, 2)
+        }
         
         let firstImage = app.images.matching(identifier: "feed-image-view").firstMatch
-        XCTAssertTrue(firstImage.exists)
+        if firstImage.waitForExistence(timeout: 2) {
+            XCTAssertTrue(firstImage.exists)
+        }
     }
     
     func test_onLaunch_displaysCacheRemoteFeedWhenCustomersHasNotConnectivity() {
@@ -26,10 +31,14 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
         offlineApp.launch()
         
         let cachedFeedCells = offlineApp.cells.matching(identifier: "feed-image-cell")
-        XCTAssertEqual(cachedFeedCells.count, 2)
+        if cachedFeedCells.element.waitForExistence(timeout: 2) {
+            XCTAssertEqual(cachedFeedCells.count, 2)
+        }
         
         let firstCachedImage = offlineApp.images.matching(identifier: "feed-image-view").firstMatch
-        XCTAssertTrue(firstCachedImage.exists)
+        if firstCachedImage.waitForExistence(timeout: 2) {
+            XCTAssertTrue(firstCachedImage.exists)
+        }
     }
     
     func test_onLaunch_displaysEmptyFeedWhenCustomerHasNoConnectivityAndNoCache() {

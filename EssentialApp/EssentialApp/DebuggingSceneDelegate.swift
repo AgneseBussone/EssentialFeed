@@ -1,4 +1,6 @@
-//
+// This class contains all the debug code that it's needed to run UI tests.
+// The AppDelegate class will set the SceneDelegate in case of debug builds: in this way, we can reduce the amount of compiler directives in the code
+// aka, let's not pollute the prod code with test/debug code.
 
 #if DEBUG
 import UIKit
