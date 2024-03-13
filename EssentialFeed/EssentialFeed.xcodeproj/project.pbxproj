@@ -349,6 +349,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		91506F7D2BA1EC3C00202A0E /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				91B6DEEB2B31BF3B0026B599 /* URLSessionHTTPClient.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		9168666B2B7F673B00FEC25A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,7 +535,7 @@
 				91978FD62B2B5AD6008714AF /* RemoteFeedLoader.swift */,
 				91B6DEE52B2DDDB10026B599 /* FeedItemsMapper.swift */,
 				91B6DEE72B2DDE0D0026B599 /* HTTPClient.swift */,
-				91B6DEEB2B31BF3B0026B599 /* URLSessionHTTPClient.swift */,
+				91506F7D2BA1EC3C00202A0E /* Infrastructure */,
 				918EB45E2B3F182300B8E847 /* RemoteFeedItem.swift */,
 				916866692B7F604B00FEC25A /* RemoteFeedImageDataLoader.swift */,
 			);
