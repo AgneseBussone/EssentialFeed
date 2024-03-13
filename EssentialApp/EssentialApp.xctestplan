@@ -14,12 +14,14 @@
       "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
       "identifier" : "91D008DB2B7D01D400B6C6A7",
       "name" : "EssentialApp"
-    }
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
+      "parallelizable" : true,
       "target" : {
-        "containerPath" : "container:EssentialApp\/EssentialApp.xcodeproj",
+        "containerPath" : "container:EssentialApp.xcodeproj",
         "identifier" : "91D008F12B7D01D500B6C6A7",
         "name" : "EssentialAppTests"
       }
