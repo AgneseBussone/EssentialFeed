@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		91506F7F2BA49A9100202A0E /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F7E2BA49A9100202A0E /* CombineHelpers.swift */; };
+		91506F812BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F802BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift */; };
+		91506F832BA49D5A00202A0E /* UIView+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F822BA49D5A00202A0E /* UIView+TestHelpers.swift */; };
 		916866882B97777E00FEC25A /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916866872B97777E00FEC25A /* XCTestCase+MemoryLeakTracking.swift */; };
 		9168668A2B9777FB00FEC25A /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916866892B9777FB00FEC25A /* SharedTestHelpers.swift */; };
 		9168669A2B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916866992B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift */; };
@@ -74,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		91506F7E2BA49A9100202A0E /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
+		91506F802BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedUIIntegrationTests+Assertions.swift"; sourceTree = "<group>"; };
+		91506F822BA49D5A00202A0E /* UIView+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TestHelpers.swift"; sourceTree = "<group>"; };
 		916866872B97777E00FEC25A /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		916866892B9777FB00FEC25A /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		916866992B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedImageDataLoader.swift"; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				916866892B9777FB00FEC25A /* SharedTestHelpers.swift */,
 				916866992B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift */,
 				9168669B2B99CC0C00FEC25A /* FeedImageDataLoaderSpy.swift */,
+				91506F802BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift */,
+				91506F822BA49D5A00202A0E /* UIView+TestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -382,11 +388,13 @@
 				916866DB2B9B120A00FEC25A /* FeedAcceptanceTests.swift in Sources */,
 				9168669C2B99CC0C00FEC25A /* FeedImageDataLoaderSpy.swift in Sources */,
 				916866D32B9B0DD700FEC25A /* UIControl+TestHelpers.swift in Sources */,
+				91506F812BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift in Sources */,
 				9168669A2B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift in Sources */,
 				916866D52B9B0DD700FEC25A /* UIButton+TestHelpers.swift in Sources */,
 				916866D12B9B0DD700FEC25A /* FeedViewController+TestHelpers.swift in Sources */,
 				916866BB2B9B08A500FEC25A /* SceneDelegateTests.swift in Sources */,
 				916866D22B9B0DD700FEC25A /* FeedViewControllerTests+LoaderSpy.swift in Sources */,
+				91506F832BA49D5A00202A0E /* UIView+TestHelpers.swift in Sources */,
 				916866D02B9B0DD700FEC25A /* UIRefreshControl+TestHelpers.swift in Sources */,
 				916866D42B9B0DD700FEC25A /* FeedImageCell+TestHelpers.swift in Sources */,
 				916866882B97777E00FEC25A /* XCTestCase+MemoryLeakTracking.swift in Sources */,
@@ -589,6 +597,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -616,6 +625,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
