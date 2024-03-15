@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91506F7F2BA49A9100202A0E /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F7E2BA49A9100202A0E /* CombineHelpers.swift */; };
 		916866882B97777E00FEC25A /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916866872B97777E00FEC25A /* XCTestCase+MemoryLeakTracking.swift */; };
 		9168668A2B9777FB00FEC25A /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916866892B9777FB00FEC25A /* SharedTestHelpers.swift */; };
 		9168669A2B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916866992B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		91506F7E2BA49A9100202A0E /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		916866872B97777E00FEC25A /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		916866892B9777FB00FEC25A /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		916866992B99C02700FEC25A /* XCTestCase+FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedImageDataLoader.swift"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				916866BF2B9B0DAF00FEC25A /* FeedImageDataLoaderPresentationAdapter.swift */,
 				91D008DF2B7D01D400B6C6A7 /* AppDelegate.swift */,
 				91D008E12B7D01D400B6C6A7 /* SceneDelegate.swift */,
+				91506F7E2BA49A9100202A0E /* CombineHelpers.swift */,
 				91D008E32B7D01D400B6C6A7 /* ViewController.swift */,
 				91D008E82B7D01D500B6C6A7 /* Assets.xcassets */,
 				91D008EA2B7D01D500B6C6A7 /* LaunchScreen.storyboard */,
@@ -361,6 +364,7 @@
 				916866C42B9B0DAF00FEC25A /* WeakRefVirtualProxy.swift in Sources */,
 				91D008E42B7D01D400B6C6A7 /* ViewController.swift in Sources */,
 				916866C72B9B0DAF00FEC25A /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
+				91506F7F2BA49A9100202A0E /* CombineHelpers.swift in Sources */,
 				91D008E02B7D01D400B6C6A7 /* AppDelegate.swift in Sources */,
 				916866C52B9B0DAF00FEC25A /* FeedViewAdapter.swift in Sources */,
 				916866C22B9B0DAF00FEC25A /* FeedLoaderPresentationAdapter.swift in Sources */,
