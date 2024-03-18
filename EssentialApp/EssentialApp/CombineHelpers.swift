@@ -98,6 +98,8 @@ extension DispatchQueue {
             guard Thread.isMainThread else {
                 return DispatchQueue.main.schedule(options: options, action)
             }
+            
+            action()
         }
     }
 }
