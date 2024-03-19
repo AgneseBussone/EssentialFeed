@@ -1,8 +1,8 @@
 {
   "configurations" : [
     {
-      "id" : "66EE1802-B8C5-48B5-83EB-DDEB277F6FCF",
-      "name" : "Configuration 1",
+      "id" : "1B5F0BD9-73D1-46A7-9E5E-7FF03825E857",
+      "name" : "Test Scheme Action",
       "options" : {
 
       }
@@ -12,9 +12,9 @@
     "codeCoverage" : {
       "targets" : [
         {
-          "containerPath" : "container:..\/EssentialFeed\/EssentialFeed.xcodeproj",
-          "identifier" : "91AA42792B57DEAF001D2796",
-          "name" : "EssentialFeediOS"
+          "containerPath" : "container:EssentialApp.xcodeproj",
+          "identifier" : "91D008DB2B7D01D400B6C6A7",
+          "name" : "EssentialApp"
         },
         {
           "containerPath" : "container:..\/EssentialFeed\/EssentialFeed.xcodeproj",
@@ -22,11 +22,16 @@
           "name" : "EssentialFeed"
         },
         {
-          "containerPath" : "container:EssentialApp.xcodeproj",
-          "identifier" : "91D008DB2B7D01D400B6C6A7",
-          "name" : "EssentialApp"
+          "containerPath" : "container:..\/EssentialFeed\/EssentialFeed.xcodeproj",
+          "identifier" : "91AA42792B57DEAF001D2796",
+          "name" : "EssentialFeediOS"
         }
       ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:EssentialApp.xcodeproj",
+      "identifier" : "91D008DB2B7D01D400B6C6A7",
+      "name" : "EssentialApp"
     },
     "testExecutionOrdering" : "random"
   },
