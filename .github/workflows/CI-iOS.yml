@@ -28,9 +28,11 @@ jobs:
         xcodebuild clean build test -workspace EssentialApp/EssentialApp.xcworkspace -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" ONLY_ACTIVE_ARCH=YES -resultBundlePath ./CI_iOS_test_result
 
     - name: Zip xcresult
+      if: always()
       run: zip -r CI_iOS_test_result.zip CI_iOS_test_result
 
     - uses: actions/upload-artifact@v4
+      if: always()
       with:
         name: CI_iOS_test_result
         path: CI_iOS_test_result.zip
