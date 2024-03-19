@@ -24,4 +24,12 @@ jobs:
       run: /usr/bin/xcodebuild -version
       
     - name: Build and Test
-      run: xcodebuild clean build test -workspace EssentialApp/EssentialApp.xcworkspace -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" ONLY_ACTIVE_ARCH=YES
+      run: xcodebuild clean build test -workspace EssentialApp/EssentialApp.xcworkspace -scheme "CI_iOS" -resultBundlePath TestResults CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" ONLY_ACTIVE_ARCH=YES
+    
+    - name: xcresulttool
+        uses: kishikawakatsumi/xcresulttool@v1.7.1
+            with:
+            path: TestResults.xcresult
+            show-passed-tests: false
+            upload-bundles: never
+        if: success() || failure()
