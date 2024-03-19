@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911AE1FF2BA98EA500891D75 /* CI_iOS.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 911AE1FE2BA98EA400891D75 /* CI_iOS.xctestplan */; };
 		91506F7F2BA49A9100202A0E /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F7E2BA49A9100202A0E /* CombineHelpers.swift */; };
 		91506F812BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F802BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift */; };
 		91506F832BA49D5A00202A0E /* UIView+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F822BA49D5A00202A0E /* UIView+TestHelpers.swift */; };
@@ -75,6 +76,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		911AE1FE2BA98EA400891D75 /* CI_iOS.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CI_iOS.xctestplan; sourceTree = "<group>"; };
 		91506F7E2BA49A9100202A0E /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		91506F802BA49C8D00202A0E /* FeedUIIntegrationTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedUIIntegrationTests+Assertions.swift"; sourceTree = "<group>"; };
 		91506F822BA49D5A00202A0E /* UIView+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TestHelpers.swift"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 		91D008D32B7D01D400B6C6A7 = {
 			isa = PBXGroup;
 			children = (
+				911AE1FE2BA98EA400891D75 /* CI_iOS.xctestplan */,
 				91D008DE2B7D01D400B6C6A7 /* EssentialApp */,
 				91D008F52B7D01D500B6C6A7 /* EssentialAppTests */,
 				916866A82B99F89000FEC25A /* EssentialAppUIAcceptanceTests */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91D008EC2B7D01D500B6C6A7 /* LaunchScreen.storyboard in Resources */,
+				911AE1FF2BA98EA500891D75 /* CI_iOS.xctestplan in Resources */,
 				91D008E92B7D01D500B6C6A7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
