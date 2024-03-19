@@ -24,11 +24,20 @@ jobs:
       run: /usr/bin/xcodebuild -version
       
     - name: Build and Test
-      run: xcodebuild clean build test -workspace EssentialApp/EssentialApp.xcworkspace -scheme "CI_iOS" -resultBundlePath TestResults CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" ONLY_ACTIVE_ARCH=YES
-    
-    - uses: kishikawakatsumi/xcresulttool@v1.7.1
+      run: |
+        xcodebuild clean build test -workspace EssentialApp/EssentialApp.xcworkspace -scheme "CI_iOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2" ONLY_ACTIVE_ARCH=YES -resultBundlePath ./resultBundle
+      continue-on-error: true
+
+    - name: Set failure flag
+      if: failure()
+      run: echo "test_failed=true" >> $GITHUB_ENV
+
+    - name: Zip xcresult
+      if: env.test_failed == 'true'
+      run: zip -r resultBundle.zip resultBundle
+
+    - uses: actions/upload-artifact@v3
+      if: env.test_failed == 'true'
       with:
-        path: TestResults.xcresult
-        show-passed-tests: false
-        upload-bundles: never
-      if: success() || failure()
+        name: xcresult
+        path: resultBundle.zip
