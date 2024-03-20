@@ -29,6 +29,6 @@ jobs:
     - uses: actions/upload-artifact@v4
       if: always()
       with:
-        name: CI-test-result
-        path: CI_macOS_test_result.xcresult
+        name: CI_macOS_test_result
+        path: ./CI_macOS_test_result
         retention-days: 2
