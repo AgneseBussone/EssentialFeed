@@ -3,7 +3,7 @@
 import XCTest
 import EssentialFeed
 
-final class RemoteImageCommentsLoaderTests: XCTestCase {
+final class ImageCommentsMapperTests: XCTestCase {
     
     func test_load_deliversErrorOnNon200HTTPResponse() {
         let (sut, client) = makeSUT()
