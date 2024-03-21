@@ -53,7 +53,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
     private func getFeedResult(file: StaticString = #file, line: UInt = #line) -> FeedLoader.Result? {
         let testServerURL = URL(string: "https://essentialdeveloper.com/feed-case-study/test-api/feed")!
         let client = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        let loader = RemoteFeedLoader(url: testServerURL, client: client)
+        let loader = RemoteLoader(url: testServerURL, client: client, mapper: FeedItemsMapper.map)
         
         // note: this methods belongs to a different target, so you have to add it to this target in order to use it here
         // select the file -> inspector(right panel) -> target membership section
