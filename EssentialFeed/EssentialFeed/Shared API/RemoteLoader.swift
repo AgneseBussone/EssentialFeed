@@ -2,44 +2,44 @@
 
 import Foundation
 
-public final class RemoteLoader: FeedLoader {
+public final class RemoteLoader<Resource> {
     private let url: URL
     private let client: HTTPClient
-        
-    // we have to use the namespace because it's the same name
+    private let mapper: Mapper
+    
     public enum Error: Swift.Error {
         case connectivity
         case invalidData
     }
     
-    public typealias Result = FeedLoader.Result
+    public typealias Result = Swift.Result<Resource, Swift.Error>
+    public typealias Mapper = (Data, HTTPURLResponse) throws -> Resource
     
-    // the RemoteFeedLoader doesn't need to know details about url and http client,
-    // so they can simply be passed in as dependencies
-    public init(url: URL, client: HTTPClient) {
+    public init(url: URL, client: HTTPClient, mapper: @escaping Mapper) {
         self.url = url
         self.client = client
+        self.mapper = mapper
     }
     
-    public func load(completion: @escaping (FeedLoader.Result) -> Void) {
+    public func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { [weak self] result in
             
-            // avoid running the completion block in case the instance of the RemoteFeedLoader has been destroyed
+            // avoid running the completion block in case the instance has been destroyed
             // comment this to see the failing test!!
-            guard self != nil else { return }
+            guard let self = self else { return }
             
             switch result {
             case let .success((data, response)):
-                completion(RemoteLoader.map(data, from: response))
+                completion(self.map(data, from: response))
             case .failure:
                 completion(.failure(Error.connectivity))
             }
         }
     }
     
-    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
+    private func map(_ data: Data, from response: HTTPURLResponse) -> Result {
         do {
-            let items = try FeedItemsMapper.map(data, from: response)
+            let items = try mapper(data, response)
             return .success(items)
         } catch {
             return .failure(Error.invalidData)
