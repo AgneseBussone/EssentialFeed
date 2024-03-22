@@ -7,10 +7,6 @@ public final class LoadResourcePresenter {
     private let loadingView: FeedLoadingView
     private let feedView: FeedView
     
-    public static var title: String {
-        return NSLocalizedString("FEED_VIEW_TITLE", tableName: "Feed", bundle: Bundle(for: FeedPresenter.self), comment: "")
-    }
-    
     static var feedLoadError: String {
         return NSLocalizedString("FEED_VIEW_CONNECTION_ERROR", tableName: "Feed", bundle: Bundle(for: FeedPresenter.self), comment: "")
     }
