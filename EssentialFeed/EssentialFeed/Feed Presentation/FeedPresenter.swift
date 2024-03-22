@@ -24,7 +24,7 @@ public final class FeedPresenter {
     }
     
     static var feedLoadError: String {
-        return NSLocalizedString("FEED_VIEW_CONNECTION_ERROR", tableName: "Feed", bundle: Bundle(for: FeedPresenter.self), comment: "")
+        return NSLocalizedString("GENERIC_CONNECTION_ERROR", tableName: "Feed", bundle: Bundle(for: FeedPresenter.self), comment: "")
     }
 
     public init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
