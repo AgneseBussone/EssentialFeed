@@ -1,25 +1,25 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "FEED_VIEW_TITLE" : {
+    "GENERIC_CONNECTION_ERROR" : {
       "extractionState" : "manual",
       "localizations" : {
         "el" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Το Feed μου"
+            "state" : "needs_review",
+            "value" : "Δεν ήταν δυνατή η σύνδεση στο διακομιστή"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "My Feed"
+            "value" : "Couldn't connect to server"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meu Feed"
+            "state" : "needs_review",
+            "value" : "Não foi possível conectar com o servidor"
           }
         }
       }
