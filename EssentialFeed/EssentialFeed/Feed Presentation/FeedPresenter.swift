@@ -2,16 +2,12 @@
 
 import Foundation
 
-public protocol FeedErrorView {
-    func display(_ viewmodel: FeedErrorViewModel)
-}
-
 public protocol FeedView {
     func display(_ viewModel: FeedViewModel)
 }
 
 public final class FeedPresenter {
-    private let errorView: FeedErrorView
+    private let errorView: ResourceErrorView
     private let loadingView: ResourceLoadingView
     private let feedView: FeedView
     
@@ -23,7 +19,7 @@ public final class FeedPresenter {
         return NSLocalizedString("GENERIC_CONNECTION_ERROR", tableName: "SharedStrings", bundle: Bundle(for: FeedPresenter.self), comment: "")
     }
 
-    public init(feedView: FeedView, loadingView: ResourceLoadingView, errorView: FeedErrorView) {
+    public init(feedView: FeedView, loadingView: ResourceLoadingView, errorView: ResourceErrorView) {
         self.errorView = errorView
         self.loadingView = loadingView
         self.feedView = feedView
