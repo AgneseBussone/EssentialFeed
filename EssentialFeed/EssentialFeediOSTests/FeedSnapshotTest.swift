@@ -217,7 +217,7 @@ private class ImageStub: FeedImageCellControllerDelegate {
         
         if let image = image {
             controller?.display(image)
-            controller?.display(ResourceErrorViewModel(message: .none))
+            controller?.display(.noError)
         } else {
             controller?.display(ResourceErrorViewModel(message: "any"))
         }

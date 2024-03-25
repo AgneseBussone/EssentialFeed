@@ -403,10 +403,10 @@
 			isa = PBXGroup;
 			children = (
 				916BD9192B767189009CD0F8 /* FeedPresenter.swift */,
-				916BD9162B766F79009CD0F8 /* Feed.xcstrings */,
 				916BD9202B767398009CD0F8 /* FeedViewModel.swift */,
 				91D008CE2B7BD4FB00B6C6A7 /* FeedImagePresenter.swift */,
 				91D008D02B7BD62400B6C6A7 /* FeedImageViewModel.swift */,
+				916BD9162B766F79009CD0F8 /* Feed.xcstrings */,
 			);
 			path = "Feed Presentation";
 			sourceTree = "<group>";
