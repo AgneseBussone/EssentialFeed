@@ -2,42 +2,14 @@
 
 import Foundation
 
-public protocol FeedView {
-    func display(_ viewModel: FeedViewModel)
-}
-
 public final class FeedPresenter {
-    private let errorView: ResourceErrorView
-    private let loadingView: ResourceLoadingView
-    private let feedView: FeedView
     
     public static var title: String {
-        return NSLocalizedString("FEED_VIEW_TITLE", tableName: "Feed", bundle: Bundle(for: FeedPresenter.self), comment: "")
-    }
-    
-    static var feedLoadError: String {
-        return NSLocalizedString("GENERIC_CONNECTION_ERROR", tableName: "SharedStrings", bundle: Bundle(for: FeedPresenter.self), comment: "")
-    }
-
-    public init(feedView: FeedView, loadingView: ResourceLoadingView, errorView: ResourceErrorView) {
-        self.errorView = errorView
-        self.loadingView = loadingView
-        self.feedView = feedView
-    }
-    
-    public func didStartLoadingFeed() {
-        errorView.display(.noError)
-        loadingView.display(ResourceLoadingViewModel(isLoading: true))
-    }
-    
-    public func didFinishLoadingFeed(with feed: [FeedImage]) {
-        feedView.display(Self.map(feed))
-        loadingView.display(ResourceLoadingViewModel(isLoading: false))
-    }
-    
-    public func didFinishLoadingFeed(with error: Error) {
-        loadingView.display(ResourceLoadingViewModel(isLoading: false))
-        errorView.display(.error(message: FeedPresenter.feedLoadError))
+        NSLocalizedString(
+            "FEED_VIEW_TITLE",
+            tableName: "Feed",
+            bundle: Bundle(for: FeedPresenter.self),
+            comment: "Title for the feed view")
     }
     
     public static func map (_ feed: [FeedImage]) -> FeedViewModel {
