@@ -9,6 +9,12 @@ public protocol CellController {
     func cancelLoad()
 }
 
+// Optional methods
+public extension CellController {
+    func preload() {}
+    func cancelLoad() {}
+}
+
 final public class ListViewController: UITableViewController{
     
     private var loadingControllers = [IndexPath: CellController]()
