@@ -25,7 +25,7 @@ func assert(snapshot: UIImage, name: String, file: StaticString = #file, line: U
     }
 }
 
-func record(snapshot: UIImage, name: String, file: StaticString = #file, line: UInt = #line) {
+func recordSnapshot(snapshot: UIImage, name: String, file: StaticString = #file, line: UInt = #line) {
     guard let snapshotData = snapshot.pngData() else {
         XCTFail("Failed to generate PNG from snapshot", file: file, line: line)
         return
