@@ -390,9 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				910F39B92B59798B001B41C1 /* UIView+Shimmering.swift */,
-				91FC96102B69404B00209984 /* UITableView+Dequeuing.swift */,
 				91FC96122B6941ED00209984 /* UIImageView+Animations.swift */,
-				916866E12B9B5EFF00FEC25A /* UITableView+HeaderSizing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -559,9 +557,10 @@
 		91AA427B2B57DEAF001D2796 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				91F6BD552BB2C6C2001F2B49 /* Shared UI */,
+				91FC95DF2B5EAE3400209984 /* Feed UI */,
 				91AA427C2B57DEAF001D2796 /* EssentialFeediOS.h */,
 				91AA427D2B57DEAF001D2796 /* EssentialFeediOS.docc */,
-				91FC95DF2B5EAE3400209984 /* Feed UI */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -682,6 +681,41 @@
 			path = "Image Comments Presentation";
 			sourceTree = "<group>";
 		};
+		91F6BD552BB2C6C2001F2B49 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				91F6BD572BB2C721001F2B49 /* Views */,
+				91F6BD562BB2C717001F2B49 /* Controllers */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		91F6BD562BB2C717001F2B49 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				910F39B42B58328E001B41C1 /* ListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		91F6BD572BB2C721001F2B49 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91F6BD582BB2C761001F2B49 /* Helpers */,
+				916BD90E2B73CE32009CD0F8 /* ErrorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91F6BD582BB2C761001F2B49 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				916866E12B9B5EFF00FEC25A /* UITableView+HeaderSizing.swift */,
+				91FC96102B69404B00209984 /* UITableView+Dequeuing.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		91FC95DF2B5EAE3400209984 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,7 +732,6 @@
 				910F39B72B592E60001B41C1 /* FeedImageCell.swift */,
 				91FC960C2B692C6800209984 /* Feed.storyboard */,
 				91FC960E2B692D8700209984 /* Feed.xcassets */,
-				916BD90E2B73CE32009CD0F8 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -706,7 +739,6 @@
 		91FC95E12B5EAE4B00209984 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				910F39B42B58328E001B41C1 /* ListViewController.swift */,
 				91FC95F72B5FBED100209984 /* FeedImageCellController.swift */,
 			);
 			path = Controllers;
