@@ -22,6 +22,7 @@ final class ListViewSnapshotTests: XCTestCase {
         
         assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), name: "LIST_WITH_ERROR_MESSAGE_LIGHT")
         assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), name: "LIST_WITH_ERROR_MESSAGE_DARK")
+        assert(snapshot: sut.snapshot(for: .iPhone(style: .light, contentSize: .accessibilityExtraExtraExtraLarge)), name: "LIST_WITH_ERROR_MESSAGE_LIGHT_XXXL")
     }
     
     // MARK: - Helpers
