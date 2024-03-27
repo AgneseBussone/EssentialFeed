@@ -16,39 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="9xp-Le-g3Z" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="16"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPO-cd-u4r">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="25"/>
-                                    <color key="backgroundColor" red="1" green="0.41584056619999998" blue="0.41584056619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <gestureRecognizers/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="DPO-cd-u4r" secondAttribute="bottom" id="0ae-gY-hkv"/>
-                                <constraint firstItem="DPO-cd-u4r" firstAttribute="leading" secondItem="9xp-Le-g3Z" secondAttribute="leading" id="SrT-kt-xrJ"/>
-                                <constraint firstAttribute="trailing" secondItem="DPO-cd-u4r" secondAttribute="trailing" id="sYM-Lh-pfJ"/>
-                                <constraint firstItem="DPO-cd-u4r" firstAttribute="top" secondItem="9xp-Le-g3Z" secondAttribute="top" id="xjc-b4-zgQ"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="label" destination="DPO-cd-u4r" id="HAq-cN-5Rn"/>
-                            </connections>
-                        </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="iOH-Ol-DXp">
-                            <rect key="frame" x="0.0" y="674" width="393" height="16"/>
+                            <rect key="frame" x="0.0" y="658" width="393" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="d7G-pQ-Cpr" customClass="FeedImageCell" customModule="EssentialFeediOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66" width="393" height="580"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d7G-pQ-Cpr" id="TXd-ra-3Tw">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="580"/>
@@ -176,16 +151,9 @@ Location</string>
                             <action selector="refresh" destination="X6o-oI-dJg" eventType="valueChanged" id="Cxi-9i-4bb"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <outlet property="errorView" destination="9xp-Le-g3Z" id="DuH-jv-Xaq"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iB-ux-Bz0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="our-Ze-1IG">
-                    <connections>
-                        <action selector="hideMessageAnimated" destination="9xp-Le-g3Z" id="3CC-9d-T3V"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="our-Ze-1IG"/>
             </objects>
             <point key="canvasLocation" x="1031.2977099236641" y="-82.394366197183103"/>
         </scene>
@@ -194,10 +162,10 @@ Location</string>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="pin" width="10" height="14.333333015441895"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -47,7 +47,11 @@ extension ListViewController {
     }
     
     var errorMessage: String? {
-        return errorView?.message
+        return errorView.message
+    }
+    
+    func simulateErrorViewTap() {
+        errorView.simulateTap()
     }
     
     func numberOfRenderedFeedImageViews() -> Int {

@@ -9,7 +9,7 @@ final public class ListViewController: UITableViewController{
     
     public var onRefresh: (() -> Void)?
     
-    @IBOutlet private(set) public var errorView: ErrorView?
+    private(set) public var errorView = ErrorView()
     
     private var tableModel = [CellController]() {
         didSet { tableView.reloadData() }
@@ -22,7 +22,39 @@ final public class ListViewController: UITableViewController{
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureErrorView()
+        configureTraitCollectionObservers()
         refresh()
+    }
+    
+    private func configureErrorView() {
+        let container = UIView()
+        container.backgroundColor = .clear
+        container.addSubview(errorView)
+        
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            errorView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
+            errorView.topAnchor.constraint(equalTo: container.topAnchor),
+            container.bottomAnchor.constraint(equalTo: errorView.bottomAnchor)
+        ])
+        
+        tableView.tableHeaderView = container
+        
+        errorView.onHide = { [weak self] in
+            self?.tableView.beginUpdates()
+            self?.tableView.sizeTableHeaderToFit()
+            self?.tableView.endUpdates()
+        }
+    }
+    
+    private func configureTraitCollectionObservers() {
+        registerForTraitChanges(
+            [UITraitPreferredContentSizeCategory.self]
+        ) { (self: Self, previous: UITraitCollection) in
+            self.tableView.reloadData()
+        }
     }
     
     public override func viewDidLayoutSubviews() {
@@ -91,6 +123,6 @@ extension ListViewController: ResourceLoadingView {
 
 extension ListViewController: ResourceErrorView {
     public func display(_ viewmodel: ResourceErrorViewModel) {
-        errorView?.message = viewmodel.message
+        errorView.message = viewmodel.message
     }
 }
