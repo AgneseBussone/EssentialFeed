@@ -6,6 +6,14 @@ import UIKit
 import EssentialFeediOS
 
 extension ListViewController {
+    
+    public override func loadViewIfNeeded() {
+        super.loadViewIfNeeded()
+
+        // setting the frame to a very small size to prevent the diffable data source to pre-load lots of data ahead of time
+        tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+    }
+    
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
     }
@@ -55,7 +63,7 @@ extension ListViewController {
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
-        return tableView.numberOfRows(inSection: feedImagesSection)
+        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
     }
     
     func feedImageView(at row: Int) -> UITableViewCell? {
