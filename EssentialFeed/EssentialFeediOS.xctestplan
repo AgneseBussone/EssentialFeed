@@ -1,8 +1,8 @@
 {
   "configurations" : [
     {
-      "id" : "737E8F71-2B94-4810-B2C6-B87CFED1533B",
-      "name" : "Test Scheme Action",
+      "id" : "908C0483-7333-4468-AA85-02C11793A2A3",
+      "name" : "Configuration 1",
       "options" : {
 
       }
@@ -23,9 +23,6 @@
   "testTargets" : [
     {
       "parallelizable" : true,
-      "skippedTests" : [
-        "FeedLocalizationTests"
-      ],
       "target" : {
         "containerPath" : "container:EssentialFeed.xcodeproj",
         "identifier" : "91AA42822B57DEB0001D2796",
