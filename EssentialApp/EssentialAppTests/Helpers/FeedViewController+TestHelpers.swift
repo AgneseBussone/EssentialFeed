@@ -9,29 +9,13 @@ extension ListViewController {
     
     public override func loadViewIfNeeded() {
         super.loadViewIfNeeded()
-
+        
         // setting the frame to a very small size to prevent the diffable data source to pre-load lots of data ahead of time
         tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
     }
     
     func simulateUserInitiatedReload() {
         refreshControl?.simulatePullToRefresh()
-    }
-    
-    @discardableResult
-    func simulateFeedImageViewVisible(at index: Int) -> FeedImageCell? {
-        return feedImageView(at: index) as? FeedImageCell
-    }
-    
-    @discardableResult
-    func simulateFeedImageViewNotVisible(at row: Int) -> FeedImageCell? {
-        let view = simulateFeedImageViewVisible(at: row)
-        
-        let delegate = tableView.delegate
-        let index = IndexPath(row: row, section: feedImagesSection)
-        delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: index)
-        
-        return view
     }
     
     var isShowingLoadingIndicator: Bool {
@@ -50,16 +34,37 @@ extension ListViewController {
         refreshControl = fake
     }
     
-    private var feedImagesSection: Int {
-        return 0
-    }
-    
     var errorMessage: String? {
         return errorView.message
     }
     
     func simulateErrorViewTap() {
         errorView.simulateTap()
+    }
+}
+
+// MARK: - Feed specific
+
+extension ListViewController {
+    
+    private var feedImagesSection: Int {
+        return 0
+    }
+    
+    @discardableResult
+    func simulateFeedImageViewVisible(at index: Int) -> FeedImageCell? {
+        return feedImageView(at: index) as? FeedImageCell
+    }
+    
+    @discardableResult
+    func simulateFeedImageViewNotVisible(at row: Int) -> FeedImageCell? {
+        let view = simulateFeedImageViewVisible(at: row)
+        
+        let delegate = tableView.delegate
+        let index = IndexPath(row: row, section: feedImagesSection)
+        delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: index)
+        
+        return view
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
@@ -87,6 +92,40 @@ extension ListViewController {
         let ds = tableView.prefetchDataSource
         let index = IndexPath(row: row, section: feedImagesSection)
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
+    }
+}
+
+// MARK: - Comments specific
+
+extension ListViewController {
+    
+    private var commentsSection: Int {
+        return 0
+    }
+    
+    func numberOfRenderedComments() -> Int {
+        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: commentsSection)
+    }
+    
+    func commentMessage(at row: Int) -> String? {
+        commentView(at: row)?.messageLabel.text
+    }
+
+    func commentDate(at row: Int) -> String? {
+        commentView(at: row)?.dateLabel.text
+    }
+
+    func commentUsername(at row: Int) -> String? {
+        commentView(at: row)?.usernameLabel.text
+    }
+    
+    private func commentView(at row: Int) -> ImageCommentCell? {
+        guard numberOfRenderedComments() > row else {
+            return nil
+        }
+        let ds = tableView.dataSource
+        let index = IndexPath(row: row, section: commentsSection)
+        return ds?.tableView(tableView, cellForRowAt: index) as? ImageCommentCell
     }
 }
 
