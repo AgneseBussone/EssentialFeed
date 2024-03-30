@@ -131,6 +131,29 @@ final class CommentsUIIntegrationTests: XCTestCase {
         XCTAssertEqual(sut.errorMessage, nil)
     }
     
+    func test_deinit_cancelsRunningRequests() {
+        var cancelCount = 0
+        var sut: ListViewController?
+        
+        // we need to use a prive autoreleasepool or the test will fail because the instance will be in fact released in the tearDown (where the trackForMemoryLeaks does the check)
+        autoreleasepool {
+            sut = CommentsUIComposer.commentsComposedWith {
+                PassthroughSubject<[ImageComment], Error>()
+                    .handleEvents(receiveCancel: {
+                        cancelCount += 1
+                    }).eraseToAnyPublisher()
+            }
+            
+            sut?.loadViewIfNeeded()
+        }
+        
+        XCTAssertEqual(cancelCount, 0)
+
+        sut = nil
+        
+        XCTAssertEqual(cancelCount, 1)
+    }
+    
     // MARK: - Helpers
 
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
