@@ -7,11 +7,23 @@ import EssentialFeediOS
 
 extension ListViewController {
     
-    public override func loadViewIfNeeded() {
-        super.loadViewIfNeeded()
-        
+    func simulateAppearance() {
+        if !isViewLoaded {
+            loadViewIfNeeded()
+            prepareForFirstAppearance()
+        }
+        beginAppearanceTransition(true, animated: false)
+        endAppearanceTransition()
+    }
+    
+    private func prepareForFirstAppearance() {
+        setSmallFrameToPreventRenderingCells()
+        replaceRefreshControlWithFakeForiOS17Support()
+    }
+    
+    private func setSmallFrameToPreventRenderingCells() {
         // setting the frame to a very small size to prevent the diffable data source to pre-load lots of data ahead of time
-        tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+        tableView.frame = CGRect(x: 0, y: 0, width: 390, height: 1)
     }
     
     func simulateUserInitiatedReload() {
@@ -22,7 +34,7 @@ extension ListViewController {
         return refreshControl?.isRefreshing == true
     }
     
-    func replaceRefreshControlWithFakeForiOS17Support() {
+    private func replaceRefreshControlWithFakeForiOS17Support() {
         let fake = FakeRefreshControl()
         
         refreshControl?.allTargets.forEach { target in
