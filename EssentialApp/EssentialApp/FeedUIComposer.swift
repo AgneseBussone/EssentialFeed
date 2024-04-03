@@ -14,7 +14,7 @@ public final class FeedUIComposer {
         selection:  @escaping (FeedImage) -> Void = { _ in }
     ) -> ListViewController {
         let presentationAdapter = LoadResourcePresentationAdapter<[FeedImage], FeedViewAdapter>(
-            loader: { feedLoader().dispatchOnMainQueue() }
+            loader: feedLoader
         )
         let feedController = makeFeedViewController(title: FeedPresenter.title)
         feedController.onRefresh = presentationAdapter.loadResource
