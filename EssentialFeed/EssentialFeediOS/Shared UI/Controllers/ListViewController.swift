@@ -7,6 +7,8 @@ final public class ListViewController: UITableViewController{
     
     private var loadingControllers = [IndexPath: CellController]()
     
+    private var onViewIsAppearing: ((ListViewController) -> Void)?
+
     public var onRefresh: (() -> Void)?
     
     private(set) public var errorView = ErrorView()
@@ -23,12 +25,22 @@ final public class ListViewController: UITableViewController{
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         configureErrorView()
         configureTraitCollectionObservers()
-        refresh()
+        
+        onViewIsAppearing = { vc in
+            vc.onViewIsAppearing = nil
+            vc.refresh()
+        }
+    }
+    
+    public override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+
+        onViewIsAppearing?(self)
     }
     
     private func configureErrorView() {
@@ -89,6 +101,11 @@ final public class ListViewController: UITableViewController{
     public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
       let dl = cellController(at: indexPath)?.delegate
       dl?.tableView?(tableView, willDisplay: cell, forRowAt: indexPath)
+    }
+    
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dl = cellController(at: indexPath)?.delegate
+        dl?.tableView?(tableView, didSelectRowAt: indexPath)
     }
     
     private func cellController(at indexPath: IndexPath) -> CellController? {

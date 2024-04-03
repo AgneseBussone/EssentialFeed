@@ -54,15 +54,13 @@
             ReferencedContainer = "container:EssentialApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91D008DB2B7D01D400B6C6A7"
-            BuildableName = "EssentialApp.app"
-            BlueprintName = "EssentialApp"
-            ReferencedContainer = "container:EssentialApp/EssentialApp.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "MTC_CRASH_ON_REPORT"
+            value = "1"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
