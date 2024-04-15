@@ -6,7 +6,7 @@
       "localizations" : {
         "el" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Δεν ήταν δυνατή η σύνδεση στο διακομιστή"
           }
         },
@@ -18,7 +18,7 @@
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Não foi possível conectar com o servidor"
           }
         }
