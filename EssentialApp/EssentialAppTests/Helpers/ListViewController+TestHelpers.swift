@@ -75,6 +75,11 @@ extension ListViewController {
     private var feedImagesSection: Int { 0 }
     private var feedLoadMoreSection: Int { 1 }
     
+    var isShowingLoadMoreFeedIndicator: Bool {
+        let view = cell(row: 0, section: feedLoadMoreSection) as? LoadMoreCell
+        return view?.isLoading == true
+    }
+    
     @discardableResult
     func simulateFeedImageViewVisible(at index: Int) -> FeedImageCell? {
         return feedImageView(at: index) as? FeedImageCell
