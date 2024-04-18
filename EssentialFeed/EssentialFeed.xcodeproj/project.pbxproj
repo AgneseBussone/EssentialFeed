@@ -65,6 +65,8 @@
 		91867C9F2BCFAFE30010B367 /* Paginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91867C9E2BCFAFE30010B367 /* Paginated.swift */; };
 		91867CA12BD10A570010B367 /* FeedEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91867CA02BD10A570010B367 /* FeedEndpointTests.swift */; };
 		91867CA32BD10AEE0010B367 /* FeedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91867CA22BD10AEE0010B367 /* FeedEndpoint.swift */; };
+		91867CA52BD10F740010B367 /* ImagecommentsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91867CA42BD10F740010B367 /* ImagecommentsEndpoint.swift */; };
+		91867CA72BD10FB30010B367 /* ImageCommentsEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91867CA62BD10FB30010B367 /* ImageCommentsEndpointTests.swift */; };
 		918EB4582B3DB6D400B8E847 /* SaveFeedInCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB4572B3DB6D400B8E847 /* SaveFeedInCacheTests.swift */; };
 		918EB45B2B3ECED100B8E847 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB45A2B3ECED100B8E847 /* LocalFeedLoader.swift */; };
 		918EB45D2B3ECF8E00B8E847 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918EB45C2B3ECF8E00B8E847 /* FeedStore.swift */; };
@@ -225,6 +227,8 @@
 		91867C9E2BCFAFE30010B367 /* Paginated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginated.swift; sourceTree = "<group>"; };
 		91867CA02BD10A570010B367 /* FeedEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedEndpointTests.swift; sourceTree = "<group>"; };
 		91867CA22BD10AEE0010B367 /* FeedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedEndpoint.swift; sourceTree = "<group>"; };
+		91867CA42BD10F740010B367 /* ImagecommentsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagecommentsEndpoint.swift; sourceTree = "<group>"; };
+		91867CA62BD10FB30010B367 /* ImageCommentsEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsEndpointTests.swift; sourceTree = "<group>"; };
 		918EB4572B3DB6D400B8E847 /* SaveFeedInCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFeedInCacheTests.swift; sourceTree = "<group>"; };
 		918EB45A2B3ECED100B8E847 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		918EB45C2B3ECF8E00B8E847 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				91F6BD212BAB3FE8001F2B49 /* ImageCommentsMapper.swift */,
+				91867CA42BD10F740010B367 /* ImagecommentsEndpoint.swift */,
 			);
 			path = "Image Comments API";
 			sourceTree = "<group>";
@@ -718,6 +723,7 @@
 			isa = PBXGroup;
 			children = (
 				91F6BD1D2BAB3D66001F2B49 /* ImageCommentsMapperTests.swift */,
+				91867CA62BD10FB30010B367 /* ImageCommentsEndpointTests.swift */,
 			);
 			path = "Image Comments API";
 			sourceTree = "<group>";
@@ -1082,6 +1088,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91867CA52BD10F740010B367 /* ImagecommentsEndpoint.swift in Sources */,
 				91F6BD4F2BB1C149001F2B49 /* ImageCommentsPresenter.swift in Sources */,
 				918EB45D2B3ECF8E00B8E847 /* FeedStore.swift in Sources */,
 				9102B0262B4C02AD009B6464 /* FeedStore.xcdatamodeld in Sources */,
@@ -1139,6 +1146,7 @@
 				916BD9132B765FE9009CD0F8 /* FeedPresenterTests.swift in Sources */,
 				9168666F2B7F909E00FEC25A /* LoadFeedImageDataFromCacheTests.swift in Sources */,
 				918EB46A2B44601D00B8E847 /* Helpers.swift in Sources */,
+				91867CA72BD10FB30010B367 /* ImageCommentsEndpointTests.swift in Sources */,
 				916866772B84B2F000FEC25A /* SaveFeedImageDataInCacheTests.swift in Sources */,
 				918EB4682B445A9C00B8E847 /* ValidateCacheTests.swift in Sources */,
 				918EB4582B3DB6D400B8E847 /* SaveFeedInCacheTests.swift in Sources */,
