@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         .defaultDirectoryURL()
         .appendingPathComponent("feed-store.sqlite")
     
-    let baseUrl = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed/v1")!
+    let baseUrl = URL(string: "https://ile-api.essentialdeveloper.com/essential-feed")!
     
     private lazy var httpClient: HTTPClient = {
         URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
@@ -60,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func showComments(for image: FeedImage) {
-        let url = baseUrl.appendingPathComponent("/image/\(image.id)/comments")
+        let url = ImageCommentsEndpoint.get(image.id).url(baseURL: baseUrl)
         let commentsViewController = CommentsUIComposer.commentsComposedWith(commentsLoader: makeRemoteCommentsLoader(url: url))
         navigationController.pushViewController(commentsViewController, animated: true)
     }
@@ -79,7 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeRemoteFeedLoaderWithLocalFallback() -> AnyPublisher<Paginated<FeedImage>, Error> {
-        let remoteURL = baseUrl.appendingPathComponent("/feed")
+        let remoteURL = FeedEndpoint.get.url(baseURL: baseUrl)
         let remoteClient = makeRemoteClient()
         
         return remoteClient
