@@ -60,7 +60,7 @@ private class DebuggingHTTPClient: HTTPClient {
                 return makeImageData()
 
             default:
-                return makeFeedData()
+                return makeFirstFeedPageData()
             }
         }
 
@@ -75,7 +75,7 @@ private class DebuggingHTTPClient: HTTPClient {
             return img!.pngData()!
         }
 
-        private func makeFeedData() -> Data {
+        private func makeFirstFeedPageData() -> Data {
             return try! JSONSerialization.data(withJSONObject: ["items": [
                 ["id": UUID().uuidString, "image": "http://image.com"],
                 ["id": UUID().uuidString, "image": "http://image.com"]
