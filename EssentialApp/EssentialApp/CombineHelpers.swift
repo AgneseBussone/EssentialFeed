@@ -188,12 +188,20 @@ extension Publisher {
     }
 
     func logErrors(url: URL, logger: Logger) -> AnyPublisher<Output, Failure> {
-        var startTime = CACurrentMediaTime()
-        
         return handleEvents (
             receiveCompletion: { result in
                 if case let .failure(error) = result {
                     logger.trace("Combine: Failed to load url: \(url) with error: \(error.localizedDescription)")
+                }
+            }
+        ).eraseToAnyPublisher()
+    }
+
+    func logCacheMisses(url: URL, logger: Logger) -> AnyPublisher<Output, Failure> {
+        return handleEvents (
+            receiveCompletion: { result in
+                if case .failure = result {
+                    logger.trace("Combine: cache miss for url: \(url)")
                 }
             }
         ).eraseToAnyPublisher()
