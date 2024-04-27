@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911751532BDCE26500BBE5E2 /* NullStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911751522BDCE26500BBE5E2 /* NullStore.swift */; };
 		911DDB9B2BB8061F0082D625 /* CommentsUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DDB9A2BB8061F0082D625 /* CommentsUIIntegrationTests.swift */; };
 		911DDB9D2BB808010082D625 /* CommentsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DDB9C2BB808010082D625 /* CommentsUIComposer.swift */; };
 		91506F7F2BA49A9100202A0E /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506F7E2BA49A9100202A0E /* CombineHelpers.swift */; };
@@ -76,6 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		911751522BDCE26500BBE5E2 /* NullStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NullStore.swift; sourceTree = "<group>"; };
 		911DDB9A2BB8061F0082D625 /* CommentsUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIIntegrationTests.swift; sourceTree = "<group>"; };
 		911DDB9C2BB808010082D625 /* CommentsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsUIComposer.swift; sourceTree = "<group>"; };
 		91506F7E2BA49A9100202A0E /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				91D008EA2B7D01D500B6C6A7 /* LaunchScreen.storyboard */,
 				91D008ED2B7D01D500B6C6A7 /* Info.plist */,
 				916866B82B9A092A00FEC25A /* DebuggingSceneDelegate.swift */,
+				911751522BDCE26500BBE5E2 /* NullStore.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				91D008E22B7D01D400B6C6A7 /* SceneDelegate.swift in Sources */,
 				916866C32B9B0DAF00FEC25A /* FeedUIComposer.swift in Sources */,
 				911DDB9D2BB808010082D625 /* CommentsUIComposer.swift in Sources */,
+				911751532BDCE26500BBE5E2 /* NullStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
