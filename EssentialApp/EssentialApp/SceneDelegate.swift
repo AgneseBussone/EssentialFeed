@@ -1,5 +1,6 @@
 //
 
+import os
 import UIKit
 import EssentialFeed
 import EssentialFeediOS
@@ -20,8 +21,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
     }()
     
+    private lazy var logger = Logger(subsystem: "EssentialAppCaseStudy", category: "main")
+    
     private lazy var store: FeedStore & FeedImageDataStore = {
-        try! CoreDataFeedStore(storeURL: localStoreURL)
+        do {
+            return try CoreDataFeedStore(storeURL: localStoreURL)
+        } catch {
+            // in debug builds, crash to allow devs to fix programming error
+            assertionFailure("Failed to instantiate CoreData store with error: \(error.localizedDescription)")
+            
+            // in production, use a whatever logger (like Crashalitycs) to analyse error in prod
+            logger.fault("Failed to instantiate CoreData store with error: \(error.localizedDescription)")
+            
+            // provide a non-critical instance in case the real instance cannot be created
+            return NullStore()
+        }
     }()
     
     private lazy var localFeedLoader: LocalFeedLoader = {
@@ -101,6 +115,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         return httpClient
             .getPublisher(url: url)
+            .logElapsedTime(url: url, logger: logger) // logging with Combine
+            .logErrors(url: url, logger: logger)
             .tryMap(FeedItemsMapper.map)
             .eraseToAnyPublisher()
     }
@@ -116,12 +132,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeLocalImageLoaderWithRemoteFallback(url: URL) -> FeedImageDataLoader.Publisher {
+        // Logging with Decorator
+        let client = HttpClientProfilingDecorator(decoratee: httpClient, logger: logger)
         let localImageLoader = LocalFeedImageDataLoader(store: store)
         
         return localImageLoader
             .loadImageDataPublisher(from: url)
-            .fallback(to: { [httpClient] in
-                httpClient
+            .logCacheMisses(url: url, logger: logger)
+            .fallback(to: {
+                client
                     .getPublisher(url: url)
                     .tryMap(FeedImageDataMapper.map)
                     .caching(to: localImageLoader, using: url)

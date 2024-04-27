@@ -14,8 +14,12 @@ internal class ManagedCache: NSManagedObject {
     }
     
     static func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedCache {
-        try find(in: context).map(context.delete)
+        try deleteCache(in: context)
         return ManagedCache(context: context)
+    }
+    
+    static func deleteCache(in context: NSManagedObjectContext) throws {
+        try find(in: context).map(context.delete).map(context.save)
     }
     
     var localFeed: [LocalFeedImage] {
