@@ -2,6 +2,8 @@
 
 import Foundation
 import Combine
+import os
+import UIKit
 import EssentialFeed
 
 public extension Paginated {
@@ -169,3 +171,31 @@ extension DispatchQueue {
     }
 }
 
+extension Publisher {
+    func logElapsedTime(url: URL, logger: Logger) -> AnyPublisher<Output, Failure> {
+        var startTime = CACurrentMediaTime()
+        
+        return handleEvents (
+            receiveSubscription: { _ in
+                logger.trace("Combine: Started loading url: \(url)")
+                startTime = CACurrentMediaTime()
+            },
+            receiveCompletion: { result in
+                let elapsed = CACurrentMediaTime() - startTime
+                logger.trace("Combine: Finished loading url: \(url) in \(elapsed) seconds")
+            }
+        ).eraseToAnyPublisher()
+    }
+
+    func logErrors(url: URL, logger: Logger) -> AnyPublisher<Output, Failure> {
+        var startTime = CACurrentMediaTime()
+        
+        return handleEvents (
+            receiveCompletion: { result in
+                if case let .failure(error) = result {
+                    logger.trace("Combine: Failed to load url: \(url) with error: \(error.localizedDescription)")
+                }
+            }
+        ).eraseToAnyPublisher()
+    }
+}

@@ -115,6 +115,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         return httpClient
             .getPublisher(url: url)
+            .logElapsedTime(url: url, logger: logger) // logging with Combine
+            .logErrors(url: url, logger: logger)
             .tryMap(FeedItemsMapper.map)
             .eraseToAnyPublisher()
     }
@@ -130,12 +132,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeLocalImageLoaderWithRemoteFallback(url: URL) -> FeedImageDataLoader.Publisher {
+        // Logging with Decorator
+        let client = HttpClientProfilingDecorator(decoratee: httpClient, logger: logger)
         let localImageLoader = LocalFeedImageDataLoader(store: store)
         
         return localImageLoader
             .loadImageDataPublisher(from: url)
-            .fallback(to: { [httpClient] in
-                httpClient
+            .fallback(to: {
+                client
                     .getPublisher(url: url)
                     .tryMap(FeedImageDataMapper.map)
                     .caching(to: localImageLoader, using: url)
