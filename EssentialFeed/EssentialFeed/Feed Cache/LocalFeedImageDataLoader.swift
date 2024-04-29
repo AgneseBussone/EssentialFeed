@@ -32,31 +32,14 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
         case notFound
     }
     
-    private final class LoadImageDataTask: FeedImageDataLoaderTask {
-        private var completion: ((FeedImageDataLoader.Result) -> Void)?
-        
-        init(completion: @escaping (FeedImageDataLoader.Result) -> Void) {
-            self.completion = completion
-        }
-        
-        func complete(with result: FeedImageDataLoader.Result) {
-            completion?(result)
-        }
-        
-        func cancel() {
-            completion = nil
-        }
-    }
-    
-    public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-        let task = LoadImageDataTask(completion: completion)
-        task.complete(
-            with: Swift.Result {
-                try store.retrieve(dataForURL: url)
+    public func loadImageData(from url: URL) throws -> Data {
+        do {
+            if let imageData = try store.retrieve(dataForURL: url) {
+                return imageData
             }
-                .mapError { _ in LoadError.failed }
-                .flatMap { data in data.map { .success($0) } ?? .failure(LoadError.notFound)}
-        )
-        return task
+        } catch {
+            throw LoadError.failed
+        }
+        throw LoadError.notFound
     }
 }
