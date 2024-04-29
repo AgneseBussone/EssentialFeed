@@ -44,24 +44,6 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         expect(sut, toCompleteRetrievalWith: found(lastStoredData), for: url)
     }
     
-    func test_sideEffects_runSerially() {
-        let sut = makeSUT()
-        let url = anyURL()
-
-        let op1 = expectation(description: "Operation 1")
-        sut.insert([localImage(url: url)], timestamp: Date()) { _ in
-            op1.fulfill()
-        }
-
-        let op2 = expectation(description: "Operation 2")
-        sut.insert(anyData(), for: url) { _ in    op2.fulfill() }
-
-        let op3 = expectation(description: "Operation 3")
-        sut.insert(anyData(), for: url) { _ in op3.fulfill() }
-
-        wait(for: [op1, op2, op3], timeout: 5.0, enforceOrder: true)
-    }
-    
     // - MARK: Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CoreDataFeedStore {
@@ -72,16 +54,15 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         return sut
     }
     
-    private func notFound() -> FeedImageDataStore.RetrievalResult {
+    private func notFound() -> Result<Data?, Error> {
         return .success(.none)
     }
     
-    private func found(_ data: Data) -> FeedImageDataStore.RetrievalResult {
+    private func found(_ data: Data) -> Result<Data?, Error> {
         return .success(data)
     }
     
-    private func expect(_ sut: CoreDataFeedStore, toCompleteRetrievalWith expectedResult: FeedImageDataStore.RetrievalResult, for url: URL,  file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
+    private func expect(_ sut: CoreDataFeedStore, toCompleteRetrievalWith expectedResult: Result<Data?, Error>, for url: URL,  file: StaticString = #file, line: UInt = #line) {
         let receivedResult = Result { try sut.retrieve(dataForURL: url) }
         switch (receivedResult, expectedResult) {
         case let (.success( receivedData), .success(expectedData)):
