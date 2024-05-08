@@ -96,7 +96,7 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         
         // Testing LocalFeedLoader + CoreData implementation
         // Hitting the disk for real here (while in unit test it was /dev/null)
-        let store = try! CoreDataFeedStore(storeURL: storeURL)
+        let store = try! CoreDataFeedStore(storeURL: storeURL, contextQueue: .main)
         let sut = LocalFeedLoader(store: store, currentDate: Date.init)
         
         trackForMemoryLeaks(store, file: file, line: line)
@@ -107,7 +107,7 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
     
     private func makeImageLoader(file: StaticString = #file, line: UInt = #line) -> LocalFeedImageDataLoader {
         let storeURL = testStoreURL()
-        let store = try! CoreDataFeedStore(storeURL: storeURL)
+        let store = try! CoreDataFeedStore(storeURL: storeURL, contextQueue: .main)
         let sut = LocalFeedImageDataLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
