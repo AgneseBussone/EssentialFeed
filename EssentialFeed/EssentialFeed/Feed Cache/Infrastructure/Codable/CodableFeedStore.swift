@@ -2,7 +2,16 @@
 
 import Foundation
 
- public final class CodableFeedStore: FeedStore {
+public final class CodableFeedStore{ //}: FeedStore {
+    public typealias DeletionResult = Result<Void, Error>
+    public typealias DeletionCompletion = (DeletionResult) -> Void
+    
+    public typealias InsertionResult = Result<Void, Error>
+    public typealias InsertionCompletion = (InsertionResult) -> Void
+    
+    public typealias RetrievalResult = Result<CachedFeed?, Error>
+    public typealias RetrievalCompletion = (RetrievalResult) -> Void
+    
     private struct Cache: Codable {
         let feed: [CodableFeedImage]
         let timestamp: Date
