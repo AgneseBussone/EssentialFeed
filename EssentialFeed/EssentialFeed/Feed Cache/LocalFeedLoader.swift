@@ -13,21 +13,10 @@ public final class LocalFeedLoader {
 }
 
 extension LocalFeedLoader: FeedCache {
-    public typealias SaveResult = FeedCache.Result
 
-    public func save(_ items: [FeedImage], completion: @escaping (SaveResult) -> Void) {
-        completion(SaveResult {
-            try store.deleteCachedFeed()
-            try store.insert(items.toCache(), timestamp: currentDate())
-        })
-    }
-    
-    private func cache(_ items: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
-        store.insert(items.toCache(), timestamp: currentDate()) { [weak self] error in
-            guard self != nil else { return }
-            
-            completion(error)
-        }
+    public func save(_ items: [FeedImage]) throws {
+        try store.deleteCachedFeed()
+        try store.insert(items.toCache(), timestamp: currentDate())
     }
 }
 
