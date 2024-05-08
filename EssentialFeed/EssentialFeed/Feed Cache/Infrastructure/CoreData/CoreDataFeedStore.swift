@@ -14,6 +14,10 @@ public final class CoreDataFeedStore {
         case background
     }
     
+    public var contextQueue: ContextQueue {
+        context == container.viewContext ? .main : .background
+    }
+    
     enum StoreError: Error {
         case modelNotFound
         case failedToLoadPersistentContainer(Error)
