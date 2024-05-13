@@ -106,6 +106,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func makeRemoteFeedLoaderWithLocalFallback() -> AnyPublisher<Paginated<FeedImage>, Error> {
         makeRemoteFeedLoader()
+            .receive(on: scheduler)
             .caching(to: localFeedLoader)
             .fallback(to: localFeedLoader.loadPublisher)
             .map(makeFirstPage)
@@ -120,6 +121,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // recursion: in case the newItem is empty, the remote loader won't be created => we reached the end of the pages
                 (cachedItems + newItems, newItems.last)
             }.map(makePage)
+            .receive(on: scheduler)
             .caching(to: localFeedLoader)
             .subscribe(on: scheduler)
             .eraseToAnyPublisher()
@@ -158,8 +160,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 client
                     .getPublisher(url: url)
                     .tryMap(FeedImageDataMapper.map)
+                    .receive(on: scheduler)
                     .caching(to: localImageLoader, using: url)
-                    .subscribe(on: scheduler)
                     .eraseToAnyPublisher()
             })
             .subscribe(on: scheduler)
